@@ -1,0 +1,38 @@
+baseURL: ""
+languageCode: en-us
+title: My New Hugo Site
+theme: PaperMod
+paginate: 5
+
+params:
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: false
+  author: "Yordan Stoyanov"
+
+  homeInfoParams:
+      Title: "Hello adventurer &#127757;"
+      Content: "and welcome to my little blog where I share intriguing topics from my softwere development journey. You can find me on:"
+      
+  socialIcons:
+    - name: linkedin
+      url: "https://linkedin.com"
+    - name: github
+      url: "https://github.com/"
+
+menu:
+  main:
+    - identifier: categories
+      name: categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: tags
+      url: /tags/
+      weight: 20
+    - identifier: archives
+      name: archives
+      url: /archives/
+      weight: 30
