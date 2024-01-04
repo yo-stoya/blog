@@ -1,4 +1,4 @@
-baseURL: ""
+baseURL: "https://yo-stoya.github.io/blog/"
 languageCode: en-us
 title: My New Hugo Site
 theme: PaperMod
@@ -13,9 +13,9 @@ params:
   author: "Yordan Stoyanov"
 
   homeInfoParams:
-      Title: "Hello adventurer &#127757;"
-      Content: "and welcome to my little blog where I share intriguing topics from my softwere development journey. You can find me on:"
-      
+    Title: "Hello adventurer &#127757;"
+    Content: "and welcome to my little blog where I share intriguing topics from my softwere development journey. You can find me on:"
+
   socialIcons:
     - name: linkedin
       url: "https://linkedin.com"
