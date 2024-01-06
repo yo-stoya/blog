@@ -2,7 +2,7 @@
 title: 'N + 1 Select Problem'
 date: 2024-01-04T15:37:35+02:00
 draft: false
-tags: [ "hibernate", "optimization" ]
+tags: [ "java persistence", "hibernate", "optimization" ]
 categories: [ "java persistence", "hibernate" ]
 ---
 
@@ -65,9 +65,9 @@ VALUES (1, 'dan', 1),
 
 ### The Problem
 
-By default, Hibernate will **EAGERLY** fetch any single valued relationships. Therefore, when running below code that
-loads all students, Hibernate will fist generate a query that fetches all students^(1)^ then for
-each student it will generate new query to fetch the relevant teacher^(2)^.
+By default, Hibernate will **EAGER** fetch any single valued relationships. Therefore, when running below code that
+loads all students, Hibernate will fist generate a query that fetches all students<sup>(1)</sup> then for
+each student it will generate new query to fetch the relevant teacher<sup>(2)</sup>.
 
 ```
    em.createQuery("SELECT s from Student s", Student.class);
@@ -160,9 +160,10 @@ Hibernate:
             on t1_0.id=s1_0.teacher_id
 ```
 
-So far the options we've seen are kind of in the extreme - option 1 uses large number of small queries to load the
-needed data which can take some time to process and the alternative to have one giant query that the database can
-take more time to process and load excessive data.
+So far the options we've seen are kind of in the extreme - [Option 1](#mitigation-option-1) uses large number of 
+small queries to load the
+data which can add up on processing time and [Option 2](#mitigation-option-2) have one giant query that loads excessive data and can stuck 
+the database while processing.
 
 Next option falls somewhere in the middle of its predecessors. It is however considered advanced topic and I will
 not go into much detail since it's not part of the JPA standard but entirely a Hibernate feature.
@@ -170,7 +171,7 @@ not go into much detail since it's not part of the JPA standard but entirely a H
 ### BATCH FETCHING
 
 To start off we need override the default **EAGER** fetch behavior to **LAZY** as discussed
-in [Option 1](#mitigation-step-1).  
+in [Option 1](#mitigation-option-1).  
 Then add `@BatchSize` (org.hibernate.annotations.BatchSize) to the target entity and give its `size` parameter
 a number of entities you would like to load.
 
@@ -209,5 +210,4 @@ xml** and carefully expect the queries that are being generated and tweak the ap
 <property name="hibernate.show_sql" value="true"/>
 <property name="hibernate.format_sql" value="true"/>
 ```
-
 Thanks for reading.
