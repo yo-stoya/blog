@@ -1,6 +1,6 @@
-baseURL: "https://yo-stoya.github.io/blog/"
+baseURL: "https://blog.yo-stoya.com"
 languageCode: en-us
-title: My New Hugo Site
+title: YORDANS BLOG
 theme: PaperMod
 paginate: 5
 
@@ -14,7 +14,7 @@ params:
 
   homeInfoParams:
     Title: "Hello adventurer &#127757;"
-    Content: "and welcome to my little blog where I share intriguing topics from my softwere development journey. You can find me on:"
+    Content: "and welcome to my little blog where I share intriguing topics from my software development journey. I hope everyone finds something interesting here or atleast get a refresher. I appreciate your time and feel free to connect with me on:"
 
   socialIcons:
     - name: linkedin
