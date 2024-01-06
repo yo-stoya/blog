@@ -1,5 +1,5 @@
 ---
-title: 'Hibernate Performance Tips'
+title: 'N + 1 Select Problem'
 date: 2024-01-04T15:37:35+02:00
 draft: false
 tags: [ "hibernate", "optimization" ]
@@ -10,8 +10,7 @@ categories: [ "java persistence", "hibernate" ]
 
 Our UML diagram consist of a simple `ManyToOne` relationship between a **Student** and a **Teacher**.
 
-![](student-teacher-uml.png)
-
+!["student-teacher-uml"](image/student-teacher-uml.png)
 #### Student entity
 
 ```
@@ -114,7 +113,7 @@ with huge final being dataset generated which might not be needed in the current
 
 I also drew a simple object-graph for the more visual learners out there 😊
 
-![n+1 problem img](n+1selectproblem.png)
+![n+1 problem img](image/n+1selectproblem.png)
 
 This is known as
 the [N + 1 Select Problem](https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping) -

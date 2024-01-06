@@ -14,13 +14,13 @@ params:
 
   homeInfoParams:
     Title: "Hello adventurer &#127757;"
-    Content: "and welcome to my little blog where I share intriguing topics from my software development journey. I hope everyone finds something interesting here or atleast get a refresher. I appreciate your time and feel free to connect with me on:"
+    Content: "and welcome to my little blog where I share intriguing topics from my software development journey. I hope everyone finds something interesting here or atleast get a refresher on a variaty of topics. I appreciate your time and feel free to connect with me on:"
 
   socialIcons:
     - name: linkedin
-      url: "https://linkedin.com"
+      url: "https://www.linkedin.com/in/yordan-stoyanov-651968277/"
     - name: github
-      url: "https://github.com/"
+      url: "https://github.com/yo-stoya/"
 
 menu:
   main:
