@@ -66,8 +66,8 @@ VALUES (1, 'dan', 1),
 ### The Problem
 
 By default, Hibernate will **EAGERLY** fetch any single valued relationships. Therefore, when running below code that
-loads all students, Hibernate will fist generate a query that fetches all students<sup>(1)</sup> then for
-each student it will generate new query to fetch the relevant teacher<sup>(2)</sup>.
+loads all students, Hibernate will fist generate a query that fetches all students^(1)^ then for
+each student it will generate new query to fetch the relevant teacher^(2)^.
 
 ```
    em.createQuery("SELECT s from Student s", Student.class);
