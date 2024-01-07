@@ -14,7 +14,9 @@ params:
 
   homeInfoParams:
     Title: "Hello adventurer &#127757;"
-    Content: "and welcome to my little blog where I share intriguing topics from my software development journey. I hope everyone finds something interesting here or atleast get a refresher on a variaty of topics. I appreciate your time and feel free to connect with me on:"
+    Content: "and welcome to my little blog where I share my notes and thoughts on intriguing topics from my software 
+    development journey. I hope everyone finds something interesting here or at least get a refresher on a variety of
+     topics. I appreciate your time and feel free to connect with me on:"
 
   socialIcons:
     - name: linkedin
