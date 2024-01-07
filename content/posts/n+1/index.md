@@ -11,6 +11,7 @@ categories: [ "java persistence", "hibernate" ]
 Our UML diagram consist of a simple `ManyToOne` relationship between a **Student** and a **Teacher**.
 
 !["student-teacher-uml"](image/student-teacher-uml.png)
+
 #### Student entity
 
 ```
@@ -66,7 +67,7 @@ VALUES (1, 'dan', 1),
 ### The Problem
 
 By default, Hibernate will **EAGER** fetch any single valued relationships. Therefore, when running below code that
-loads all students, Hibernate will fist generate a query that fetches all students then for
+loads all students, Hibernate will first generate a query that fetches all students and for
 each student it will generate new query to fetch the relevant teacher.
 
 ```
@@ -106,8 +107,9 @@ Hibernate:
         t1_0.id=?
 ```
 
-Luckily Hibernate only generated 2 additional queries to load the teachers (due to caching) as all students are equally
-distributed between just two teachers. However, this can still lead to unexpected performance issues as we would have
+Luckily Hibernate only generated 2 additional queries to load the teachers (due to First Level caching) as all students
+are equally distributed between just two teachers. However, this can still lead to unexpected performance issues as we
+would have
 fetched **all** other Student dependencies annotated with `@ManyToOne`, resulting in a larger object-graph traversal
 with huge final being dataset generated which might not be needed in the current context.
 
@@ -160,9 +162,12 @@ Hibernate:
             on t1_0.id=s1_0.teacher_id
 ```
 
-So far the options we've seen are kind of in the extreme - [Option 1](#mitigation-option-1) uses large number of 
+The same SQL will be generated when searching by ID `em.find(Student.class, 1);`.
+
+So far the options we've seen are kind of in the extreme - [Option 1](#mitigation-option-1) uses large number of
 small queries to load the
-data which can add up on processing time and [Option 2](#mitigation-option-2) have one giant query that loads excessive data and can stuck 
+data which can add up on processing time and [Option 2](#mitigation-option-2) have one giant query that loads excessive
+data and can stuck
 the database while processing.
 
 Next option falls somewhere in the middle of its predecessors. It is however considered advanced topic and I will
@@ -210,4 +215,5 @@ xml** and carefully expect the queries that are being generated and tweak the ap
 <property name="hibernate.show_sql" value="true"/>
 <property name="hibernate.format_sql" value="true"/>
 ```
+
 Thanks for reading.
