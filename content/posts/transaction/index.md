@@ -1,8 +1,10 @@
-+++
-title = 'Spring: Transaction Propagation'
-date = 2024-01-13T10:31:00+02:00
-draft = false
-+++
+---
+title: 'Spring: Transaction Propagation'
+date: 2024-01-13T10:31:00+02:00
+draft: false
+tags: ["spring", "transactions", "optimization"]
+categories: ["java persistence"]
+---
 
 We would normally want to wrap the business layer methods in a transaction as we want clients to be able to execute one
 whole unit of work for the given domain or rollback if something goes wrong. For that reason we should think of
