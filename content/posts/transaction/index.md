@@ -80,3 +80,16 @@ Can be used to force the client to use a transaction.
 ### 6. NESTED
 > Sets a savepoint at the start of the method. If the method rollbacks the savepoint is restored and the parent 
 > continues. If the parent rollbacks the child will as well.
+
+### Rollbacks
+
+Spring will automatically rollbacks any Runtime exceptions. Luckily handling Checked exceptions is quite easy just 
+add the Class object you want Spring to issue a rollback for as argument to `rollbackFor` parameter as follows
+`@Transactional(rollbackFor = MyCustomException.class)`.
+
+### Transaction Optimization
+
+It is recommended to wrap all database operations in a transaction however for method that only read data we can add 
+`@Transactional(readOnly = true)` flag that instructs the underlying database to do some behind the scenes 
+optimization for this query. This could be not storing the query in the DB logs or when using ORM like Hibernate to 
+disable the dirty check feature which will result in a performance increase.
